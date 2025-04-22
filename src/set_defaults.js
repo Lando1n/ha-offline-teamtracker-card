@@ -81,7 +81,7 @@ export function setDefaults(t, lang, stateObj, c, o, sport, team, oppo) {
 
     c.logo[team] = makeLogoLocal(stateObj.attributes.team_logo);
     c.logoAlternate[team] = makeLogoLocal(stateObj.attributes.team_logo);
-    c.logoError[team] = ERROR_HEADSHOT_URL;
+    c.logoError[team] = '';
     c.logoBG[team] = makeLogoLocal(stateObj.attributes.team_logo);
     c.logoBGAlternate[team] = makeLogoLocal(stateObj.attributes.team_logo);
     c.name[team] = stateObj.attributes.team_name;
@@ -96,10 +96,10 @@ export function setDefaults(t, lang, stateObj, c, o, sport, team, oppo) {
     c.winner[team] = stateObj.attributes.team_winner || false;
     c.logo[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
     c.logoAlternate [oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
-    if (c.logo[oppo] && o.darkMode) {
-        c.logo[oppo] = c.logo[oppo].replace('/500/', '/500-dark/')
-    }
-    c.logoError[oppo] = ERROR_HEADSHOT_URL;
+    // if (c.logo[oppo] && o.darkMode) {
+    //     c.logo[oppo] = c.logo[oppo].replace('/500/', '/500-dark/')
+    // }
+    c.logoError[oppo] = '';
     c.logoBG[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
     c.logoBGAlternate[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
     c.name[oppo] = stateObj.attributes.opponent_name;
@@ -113,19 +113,19 @@ export function setDefaults(t, lang, stateObj, c, o, sport, team, oppo) {
     c.record[oppo] = stateObj.attributes.opponent_record;
     c.winner[oppo] = stateObj.attributes.opponent_winner || false;
     c.playClock = stateObj.attributes.clock;
-    if (o.showLeague) {
-        c.logoBG[team] = stateObj.attributes.league_logo
-        c.logoBGAlternate[team] = stateObj.attributes.league_logo
-        c.logoBG[oppo] = stateObj.attributes.league_logo
-        c.logoBGAlternate[oppo] = stateObj.attributes.league_logo
-    }
-    if (c.logoBG[team] && o.darkMode) {
-        c.logoBG[team] = c.logoBG[team].replace('/500/', '/500-dark/')
-    }
+    // if (o.showLeague) {
+    //     c.logoBG[team] = stateObj.attributes.league_logo
+    //     c.logoBGAlternate[team] = stateObj.attributes.league_logo
+    //     c.logoBG[oppo] = stateObj.attributes.league_logo
+    //     c.logoBGAlternate[oppo] = stateObj.attributes.league_logo
+    // }
+    // if (c.logoBG[team] && o.darkMode) {
+    //     c.logoBG[team] = c.logoBG[team].replace('/500/', '/500-dark/')
+    // }
 
-    if (c.logoBG[oppo] && o.darkMode) {
-        c.logoBG[oppo] = c.logoBG[oppo].replace('/500/', '/500-dark/')
-    }
+    // if (c.logoBG[oppo] && o.darkMode) {
+    //     c.logoBG[oppo] = c.logoBG[oppo].replace('/500/', '/500-dark/')
+    // }
 
     c.score[team] = stateObj.attributes.team_score;
     c.score[oppo] = stateObj.attributes.opponent_score;

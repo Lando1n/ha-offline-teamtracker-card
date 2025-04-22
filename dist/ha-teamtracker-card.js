@@ -3345,7 +3345,7 @@ function $84bc952fd23869d6$export$2e2366488d12e20d(t, lang, stateObj, c, o, spor
     };
     c.logo[team] = makeLogoLocal(stateObj.attributes.team_logo);
     c.logoAlternate[team] = makeLogoLocal(stateObj.attributes.team_logo);
-    c.logoError[team] = (0, $4fcaa3c95ba349ea$export$607dc1951b62972e);
+    c.logoError[team] = "";
     c.logoBG[team] = makeLogoLocal(stateObj.attributes.team_logo);
     c.logoBGAlternate[team] = makeLogoLocal(stateObj.attributes.team_logo);
     c.name[team] = stateObj.attributes.team_name;
@@ -3356,8 +3356,10 @@ function $84bc952fd23869d6$export$2e2366488d12e20d(t, lang, stateObj, c, o, spor
     c.winner[team] = stateObj.attributes.team_winner || false;
     c.logo[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
     c.logoAlternate[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
-    if (c.logo[oppo] && o.darkMode) c.logo[oppo] = c.logo[oppo].replace("/500/", "/500-dark/");
-    c.logoError[oppo] = (0, $4fcaa3c95ba349ea$export$607dc1951b62972e);
+    // if (c.logo[oppo] && o.darkMode) {
+    //     c.logo[oppo] = c.logo[oppo].replace('/500/', '/500-dark/')
+    // }
+    c.logoError[oppo] = "";
     c.logoBG[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
     c.logoBGAlternate[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
     c.name[oppo] = stateObj.attributes.opponent_name;
@@ -3367,14 +3369,18 @@ function $84bc952fd23869d6$export$2e2366488d12e20d(t, lang, stateObj, c, o, spor
     c.record[oppo] = stateObj.attributes.opponent_record;
     c.winner[oppo] = stateObj.attributes.opponent_winner || false;
     c.playClock = stateObj.attributes.clock;
-    if (o.showLeague) {
-        c.logoBG[team] = stateObj.attributes.league_logo;
-        c.logoBGAlternate[team] = stateObj.attributes.league_logo;
-        c.logoBG[oppo] = stateObj.attributes.league_logo;
-        c.logoBGAlternate[oppo] = stateObj.attributes.league_logo;
-    }
-    if (c.logoBG[team] && o.darkMode) c.logoBG[team] = c.logoBG[team].replace("/500/", "/500-dark/");
-    if (c.logoBG[oppo] && o.darkMode) c.logoBG[oppo] = c.logoBG[oppo].replace("/500/", "/500-dark/");
+    // if (o.showLeague) {
+    //     c.logoBG[team] = stateObj.attributes.league_logo
+    //     c.logoBGAlternate[team] = stateObj.attributes.league_logo
+    //     c.logoBG[oppo] = stateObj.attributes.league_logo
+    //     c.logoBGAlternate[oppo] = stateObj.attributes.league_logo
+    // }
+    // if (c.logoBG[team] && o.darkMode) {
+    //     c.logoBG[team] = c.logoBG[team].replace('/500/', '/500-dark/')
+    // }
+    // if (c.logoBG[oppo] && o.darkMode) {
+    //     c.logoBG[oppo] = c.logoBG[oppo].replace('/500/', '/500-dark/')
+    // }
     c.score[team] = stateObj.attributes.team_score;
     c.score[oppo] = stateObj.attributes.opponent_score;
     c.scoreOp[1] = .6;
