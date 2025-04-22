@@ -3339,24 +3339,27 @@ function $84bc952fd23869d6$export$2e2366488d12e20d(t, lang, stateObj, c, o, spor
     c.title = o.cardTitle;
     if (o.showLeague) c.title = c.title || stateObj.attributes.league;
     // Set Scoreboard data
-    c.logo[team] = stateObj.attributes.team_logo;
-    c.logoAlternate[team] = stateObj.attributes.team_logo;
-    if (c.logo[team] && o.darkMode) c.logo[team] = c.logo[team].replace("/500/", "/500-dark/");
+    const makeLogoLocal = (teamLogo)=>{
+        const fileName = teamLogo.split("/i/").pop();
+        return `/local/${fileName}`;
+    };
+    c.logo[team] = makeLogoLocal(stateObj.attributes.team_logo);
+    c.logoAlternate[team] = makeLogoLocal(stateObj.attributes.team_logo);
     c.logoError[team] = (0, $4fcaa3c95ba349ea$export$607dc1951b62972e);
-    c.logoBG[team] = stateObj.attributes.team_logo;
-    c.logoBGAlternate[team] = stateObj.attributes.team_logo;
+    c.logoBG[team] = makeLogoLocal(stateObj.attributes.team_logo);
+    c.logoBGAlternate[team] = makeLogoLocal(stateObj.attributes.team_logo);
     c.name[team] = stateObj.attributes.team_name;
     if (o.teamURL == "more-info") c.url[team] = null;
     else c.url[team] = o.teamURL || stateObj.attributes.team_url;
     c.rank[team] = stateObj.attributes.team_rank;
     c.record[team] = stateObj.attributes.team_record;
     c.winner[team] = stateObj.attributes.team_winner || false;
-    c.logo[oppo] = stateObj.attributes.opponent_logo;
-    c.logoAlternate[oppo] = stateObj.attributes.opponent_logo;
+    c.logo[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
+    c.logoAlternate[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
     if (c.logo[oppo] && o.darkMode) c.logo[oppo] = c.logo[oppo].replace("/500/", "/500-dark/");
     c.logoError[oppo] = (0, $4fcaa3c95ba349ea$export$607dc1951b62972e);
-    c.logoBG[oppo] = stateObj.attributes.opponent_logo;
-    c.logoBGAlternate[oppo] = stateObj.attributes.opponent_logo;
+    c.logoBG[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
+    c.logoBGAlternate[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
     c.name[oppo] = stateObj.attributes.opponent_name;
     if (o.opponentURL == "more-info") c.url[oppo] = null;
     else c.url[oppo] = o.opponentURL || stateObj.attributes.opponent_url;
@@ -3937,9 +3940,9 @@ class $a510245ba2c1e365$export$c12aa10d47d2f051 extends (0, $ab210b2da7b39b9d$ex
 }
 
 
-customElements.define("teamtracker-card", (0, $a510245ba2c1e365$export$c12aa10d47d2f051));
-customElements.define("teamtracker-card-editor", (0, $de5768471e29ae80$export$c622f67f045f310d));
-console.info("%c TEAMTRACKER-CARD %s IS INSTALLED", "color: blue; font-weight: bold", (0, $4fcaa3c95ba349ea$export$a4ad2735b021c132));
+customElements.define("offline-teamtracker-card", (0, $a510245ba2c1e365$export$c12aa10d47d2f051));
+customElements.define("offline-teamtracker-card-editor", (0, $de5768471e29ae80$export$c622f67f045f310d));
+console.info("%c OFFLINE-TEAMTRACKER-CARD %s IS INSTALLED", "color: blue; font-weight: bold", (0, $4fcaa3c95ba349ea$export$a4ad2735b021c132));
 //
 //  Add card to list of Custom Cards in the Card Picker
 //

@@ -3,10 +3,10 @@ import { TeamtrackerCardEditor } from "./card_editor.js";
 import { TeamTrackerCard } from "./teamtracker_card.js";
 
 
-customElements.define("teamtracker-card", TeamTrackerCard);
-customElements.define("teamtracker-card-editor", TeamtrackerCardEditor);
+customElements.define("offline-teamtracker-card", TeamTrackerCard);
+customElements.define("offline-teamtracker-card-editor", TeamtrackerCardEditor);
 
-console.info("%c TEAMTRACKER-CARD %s IS INSTALLED",
+console.info("%c OFFLINE-TEAMTRACKER-CARD %s IS INSTALLED",
     "color: blue; font-weight: bold",
     VERSION);
 

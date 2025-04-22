@@ -74,15 +74,16 @@ export function setDefaults(t, lang, stateObj, c, o, sport, team, oppo) {
     }
 
     // Set Scoreboard data
-
-    c.logo[team] = stateObj.attributes.team_logo;
-    c.logoAlternate[team] = stateObj.attributes.team_logo;
-    if (c.logo[team] && o.darkMode) {
-        c.logo[team] = c.logo[team].replace('/500/', '/500-dark/')
+    const makeLogoLocal = (teamLogo) => {
+        const fileName = teamLogo.split('/i/').pop()
+        return `/local/${fileName}`
     }
+
+    c.logo[team] = makeLogoLocal(stateObj.attributes.team_logo);
+    c.logoAlternate[team] = makeLogoLocal(stateObj.attributes.team_logo);
     c.logoError[team] = ERROR_HEADSHOT_URL;
-    c.logoBG[team] = stateObj.attributes.team_logo;
-    c.logoBGAlternate[team] = stateObj.attributes.team_logo;
+    c.logoBG[team] = makeLogoLocal(stateObj.attributes.team_logo);
+    c.logoBGAlternate[team] = makeLogoLocal(stateObj.attributes.team_logo);
     c.name[team] = stateObj.attributes.team_name;
     if (o.teamURL == 'more-info') {
         c.url[team] = null;
@@ -93,14 +94,14 @@ export function setDefaults(t, lang, stateObj, c, o, sport, team, oppo) {
     c.rank[team] = stateObj.attributes.team_rank;
     c.record[team] = stateObj.attributes.team_record;
     c.winner[team] = stateObj.attributes.team_winner || false;
-    c.logo[oppo] = stateObj.attributes.opponent_logo;
-    c.logoAlternate [oppo] = stateObj.attributes.opponent_logo;
+    c.logo[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
+    c.logoAlternate [oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
     if (c.logo[oppo] && o.darkMode) {
         c.logo[oppo] = c.logo[oppo].replace('/500/', '/500-dark/')
     }
     c.logoError[oppo] = ERROR_HEADSHOT_URL;
-    c.logoBG[oppo] = stateObj.attributes.opponent_logo;
-    c.logoBGAlternate[oppo] = stateObj.attributes.opponent_logo;
+    c.logoBG[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
+    c.logoBGAlternate[oppo] = makeLogoLocal(stateObj.attributes.opponent_logo);
     c.name[oppo] = stateObj.attributes.opponent_name;
     if (o.opponentURL == 'more-info') {
         c.url[oppo] = null;
